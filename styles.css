@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black; 
+    margin: 0;
+}
+
+.pizza-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.spinning-pizza {
+    position: absolute;
+    width: 5em;
+    height: auto;
+    animation: spin 1.5s linear infinite;
+    transform-origin: center center; /* Ensures rotation around center */
+}
+
+/* Mobile - 1 pizza in center */
+@media (max-width: 767px) {
+    .spinning-pizza:nth-child(1) {
+        top: 50%;
+        left: 50%;
+        margin-top: -2em; /* Half of width (4em / 2) */
+        margin-left: -2em; /* Centers properly */
+    }
+    
+    .spinning-pizza:nth-child(n+2) {
+        display: none;
+    }
+}
+
+/* Tablet - 3 pizzas, faster spin */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .spinning-pizza {
+        width: 6em;
+        animation: spin 1.5s linear infinite;
+    }
+    
+    .spinning-pizza:nth-child(1) {
+        top: 50%;
+        left: 25%;
+        margin-top: -50px; /* Half of 100px */
+        margin-left: -50px;
+    }
+    
+    .spinning-pizza:nth-child(2) {
+        top: 50%;
+        left: 50%;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+    
+    .spinning-pizza:nth-child(3) {
+        top: 50%;
+        left: 75%;
+        margin-top: -50px;
+        margin-left: -50px;
+    }
+    
+    .spinning-pizza:nth-child(n+4) {
+        display: none;
+    }
+}
+
+/* Desktop - MANY pizzas filling screen */
+@media (min-width: 1024px) {
+    .spinning-pizza {
+        width: 5em;
+        animation: spin 1.2s linear infinite;
+    }
+    
+    /* Grid of pizzas - all centered on their positions */
+    .spinning-pizza:nth-child(1) { top: 10%; left: 10%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(2) { top: 10%; left: 30%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(3) { top: 10%; left: 50%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(4) { top: 10%; left: 70%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(5) { top: 10%; left: 90%; margin: -40px 0 0 -40px; }
+    
+    .spinning-pizza:nth-child(6) { top: 30%; left: 10%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(7) { top: 30%; left: 30%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(8) { top: 30%; left: 50%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(9) { top: 30%; left: 70%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(10) { top: 30%; left: 90%; margin: -40px 0 0 -40px; }
+    
+    .spinning-pizza:nth-child(11) { top: 50%; left: 10%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(12) { top: 50%; left: 30%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(13) { top: 50%; left: 50%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(14) { top: 50%; left: 70%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(15) { top: 50%; left: 90%; margin: -40px 0 0 -40px; }
+    
+    .spinning-pizza:nth-child(16) { top: 70%; left: 10%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(17) { top: 70%; left: 30%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(18) { top: 70%; left: 50%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(19) { top: 70%; left: 70%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(20) { top: 70%; left: 90%; margin: -40px 0 0 -40px; }
+    
+    .spinning-pizza:nth-child(21) { top: 90%; left: 10%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(22) { top: 90%; left: 30%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(23) { top: 90%; left: 50%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(24) { top: 90%; left: 70%; margin: -40px 0 0 -40px; }
+    .spinning-pizza:nth-child(25) { top: 90%; left: 90%; margin: -40px 0 0 -40px; }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* @keyframes spin {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+} */
